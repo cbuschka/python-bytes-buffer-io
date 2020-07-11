@@ -8,7 +8,8 @@ tests:	install_dependencies
 	@echo "Running tests..." && \
 	cd ${TOP_DIR} && \
 	source ${VENV_DIR}/bin/activate && \
-	PYTHONPATH=${SRC_DIR}:${TESTS_DIR} python -B -m unittest discover -p '*_test.py' ${TESTS_DIR}
+	PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=${SRC_DIR}:${TESTS_DIR} coverage run -m unittest discover --verbose -t ${TOP_DIR} -s ${TESTS_DIR} --pattern '*_test.py'
+
 
 init_venv:
 	@cd ${TOP_DIR} && \
