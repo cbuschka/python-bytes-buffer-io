@@ -10,4 +10,10 @@ class BytesIOTest(unittest.TestCase):
             bytesio = io.BytesIO()
             with io.TextIOWrapper(bytesio, encoding='utf-8') as textout:
                 textout.write(TEXT)
-            self.assertEqual(TEXT, bytesio.getvalue().decode('utf-8'))
+            bytesio.getvalue().decode('utf-8')
+
+    def test_with_underlying_bytearray_does_not_work(self):
+        bytesbuf = bytearray()
+        with io.TextIOWrapper(io.BytesIO(bytesbuf), encoding='utf-8') as textout:
+            textout.write(TEXT)
+        self.assertEqual('', bytesbuf.decode('utf-8'))
