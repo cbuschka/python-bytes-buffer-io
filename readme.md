@@ -1,4 +1,4 @@
-# Python package bytesbufio
+# [Python package bytesbufio](https://github.com/cbuschka/python-bytesbufio) ![Written in Python](https://img.shields.io/badge/python-3.8-blue.svg) [![PyPI](https://img.shields.io/pypi/v/bytesbufio)](https://pypi.org/project/bytesbufio/) [![Build Status](https://travis-ci.com/cbuschka/python-bytesbufio.svg?branch=master)](https://travis-ci.com/cbuschka/python-bytesbufio) [![codecov](https://codecov.io/gh/cbuschka/python-bytesbufio/branch/master/graph/badge.svg)](https://codecov.io/gh/cbuschka/python-bytesbufio) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/cbuschka/python-bytesbufio/blob/master/license.txt)
 
 ### bytesbufio provides BytesBufferIO - an io.BytesIO implementation whose value can be accessed after it has been closed
 
