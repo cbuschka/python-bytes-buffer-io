@@ -5,7 +5,7 @@ This repo demonstrates an issue with io.BytesIO. The value of an BytesIO object 
 * [Test that shows the problem](./tests/bytesio_issue_test.py)
 * [Fixed implementation - BytesBufferIO](./src/bytesio_issue/bytes_buffer_io.py)
 
-### Example
+## Example
 ```python
 import io
 
@@ -19,8 +19,10 @@ text = bytesbufio.getvalue().decode('utf-8') # BytesIO would have raised an Valu
 print(text)
 ```
 
-### Related
+## Related
 [Python Issue 23099](https://bugs.python.org/issue23099)
 
-### License
-[MIT](./license.txt)
+## License
+Copyright (c) 2020 by [Cornelius Buschka](https://github.com/cbuschka).
+
+[Apache License, Version 2.0](./license.txt)
