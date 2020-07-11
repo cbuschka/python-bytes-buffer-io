@@ -19,7 +19,7 @@ version = get_version()
 long_description = get_readme()
 
 setuptools.setup(
-    name="bytebufio",
+    name="bytesbufio",
     version=version,
     author="Cornelius Buschka",
     author_email="cbuschka@gmail.com",
