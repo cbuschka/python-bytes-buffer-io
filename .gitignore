@@ -1,4 +1,5 @@
 /.coverage
+/coverage.xml
 /build/
 /dist/
 *.egg-info

@@ -3,7 +3,7 @@ language: python
 python:
   - "3.8"
 script:
-  - make tests
+  - make tests coverage_report
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)

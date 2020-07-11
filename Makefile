@@ -10,6 +10,10 @@ tests:	install_dependencies
 	source ${VENV_DIR}/bin/activate && \
 	PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=${SRC_DIR}:${TESTS_DIR} coverage run -m unittest discover --verbose -t ${TOP_DIR} -s ${TESTS_DIR} --pattern '*_test.py'
 
+coverage_report:	tests
+	cd ${TOP_DIR} && \
+	source ${VENV_DIR}/bin/activate && \
+	coverage xml
 
 init_venv:
 	@cd ${TOP_DIR} && \
