@@ -26,7 +26,8 @@ print(text)
 ```
 
 ## Related
-[Python Issue 23099](https://bugs.python.org/issue23099)
+* [Python Issue 22003 - BytesIO and shared bufferes](https://bugs.python.org/issue22003)
+* [Python Issue 23099 - value not available after close](https://bugs.python.org/issue23099)
 
 ## License
 Copyright (c) 2020 by [Cornelius Buschka](https://github.com/cbuschka).
