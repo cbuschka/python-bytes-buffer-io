@@ -1,7 +1,7 @@
 import io
 import unittest
 
-from bytes_buffer_io import BytesBufferIO
+from bytesbufio import BytesBufferIO
 
 TEXT = "Hello world.\n"
 
