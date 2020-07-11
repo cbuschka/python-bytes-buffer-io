@@ -1,21 +1,27 @@
-# Python BytesBufferIO
+# Python package bytesbufio
 
-This repo demonstrates an issue with io.BytesIO. The value of an BytesIO object cannot be accessed after the object has been closed.
+### bytesbufio provides BytesBufferIO - an io.BytesIO implementation whose value can be accessed after it has been closed
 
-* [Test that shows the problem](./tests/bytesio_issue_test.py)
-* [Fixed implementation - BytesBufferIO](./src/bytesio_issue/bytes_buffer_io.py)
+* [Test that shows the problem](./tests/bytesio_test.py)
+* [Fixed implementation - BytesBufferIO](./bytesbufio/bytes_buffer_io.py)
 
-## Example
+## Installation
+```
+pip install bytesbufio
+```
+
+## Usage
+
 ```python
 import io
 
-from bytes_buffer_io import BytesBufferIO
+from bytesbufio import BytesBufferIO
 
-bytesbufio = BytesBufferIO()
-with io.TextIOWrapper(bytesbufio, encoding='utf-8') as textout:
+bytesbuf = BytesBufferIO()
+with io.TextIOWrapper(bytesbuf, encoding='utf-8') as textout:
     textout.write("Hello world.")
 
-text = bytesbufio.getvalue().decode('utf-8') # BytesIO would have raised an ValueError here 
+text = bytesbuf.getvalue().decode('utf-8') # BytesIO would have raised an ValueError here 
 print(text)
 ```
 
