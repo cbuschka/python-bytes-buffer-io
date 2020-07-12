@@ -1,3 +1,4 @@
+import gzip
 import io
 import unittest
 
@@ -20,7 +21,17 @@ class BytesIOTest(unittest.TestCase):
 
     def test_with_buffer_does_not_work(self):
         with self.assertRaises(ValueError, msg="I/O operation on closed file."):
-          bytesio = io.BytesIO()
-          with io.TextIOWrapper(bytesio, encoding='utf-8') as textout:
-              textout.write(TEXT)
-          bytesio.getbuffer()
+            bytesio = io.BytesIO()
+            with io.TextIOWrapper(bytesio, encoding='utf-8') as textout:
+                textout.write(TEXT)
+            bytesio.getbuffer()
+
+    def test_getvalue_before_close_does_not_work_with_gzip(self):
+        with self.assertRaises(EOFError, msg="Compressed file ended before the end-of-stream marker was reached"):
+            bytesio = io.BytesIO()
+            with gzip.open(bytesio, mode="wt", encoding='utf-8') as textout:
+                textout.write(TEXT)
+                textout.flush()
+                gzipped_bytes = bytesio.getvalue()
+            with gzip.open(io.BytesIO(gzipped_bytes), mode="rt") as textin:
+                self.assertEqual(TEXT, textin.read())
