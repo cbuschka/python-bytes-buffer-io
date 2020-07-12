@@ -1,9 +1,10 @@
-# [Python package bytesbufio](https://github.com/cbuschka/python-bytesbufio) ![Written in Python](https://img.shields.io/badge/python-3.6,%203.7,%203.8-blue.svg) [![PyPI](https://img.shields.io/pypi/v/bytesbufio)](https://pypi.org/project/bytesbufio/) [![Build Status](https://travis-ci.com/cbuschka/python-bytesbufio.svg?branch=master)](https://travis-ci.com/cbuschka/python-bytesbufio) [![codecov](https://codecov.io/gh/cbuschka/python-bytesbufio/branch/master/graph/badge.svg)](https://codecov.io/gh/cbuschka/python-bytesbufio) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/cbuschka/python-bytesbufio/blob/master/license.txt)
+# Python package bytesbufio
+[![Sources](https://img.shields.io/badge/sources-github-blue)](https://github.com/cbuschka/python-bytesbufio) ![Written in Python](https://img.shields.io/badge/python-3.6,%203.7,%203.8-blue.svg) [![PyPI](https://img.shields.io/pypi/v/bytesbufio)](https://pypi.org/project/bytesbufio/) [![Build Status](https://travis-ci.com/cbuschka/python-bytesbufio.svg?branch=master)](https://travis-ci.com/cbuschka/python-bytesbufio) [![codecov](https://codecov.io/gh/cbuschka/python-bytesbufio/branch/master/graph/badge.svg)](https://codecov.io/gh/cbuschka/python-bytesbufio) [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/cbuschka/python-bytesbufio/blob/master/license.txt)
 
 ### bytesbufio provides BytesBufferIO - an io.BytesIO implementation whose value can be accessed after it has been closed
 
 * [Test that shows the problem](./tests/bytesio_test.py)
-* [Fixed implementation - BytesBufferIO](./bytesbufio/bytes_buffer_io.py)
+* ["Fixed" implementation - BytesBufferIO](./bytesbufio/bytes_buffer_io.py)
 
 ## Installation
 ```
