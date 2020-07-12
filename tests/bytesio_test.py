@@ -17,3 +17,10 @@ class BytesIOTest(unittest.TestCase):
         with io.TextIOWrapper(io.BytesIO(bytesbuf), encoding='utf-8') as textout:
             textout.write(TEXT)
         self.assertEqual('', bytesbuf.decode('utf-8'))
+
+    def test_with_buffer_does_not_work(self):
+        with self.assertRaises(ValueError, msg="I/O operation on closed file."):
+          bytesio = io.BytesIO()
+          with io.TextIOWrapper(bytesio, encoding='utf-8') as textout:
+              textout.write(TEXT)
+          bytesio.getbuffer()
