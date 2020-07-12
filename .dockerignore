@@ -1,0 +1,5 @@
+*
+!/bytesbufio/
+!/tests/
+!/requirements*
+!/Makefile
