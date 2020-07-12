@@ -19,7 +19,7 @@ init_venv:
 	@cd ${TOP_DIR} && \
 	if [ ! -d "${VENV_DIR}" ]; then \
 		echo "Creating virtualenv..." && \
-		virtualenv ${VENV_DIR} -p $(shell which python3.8); \
+		virtualenv ${VENV_DIR} -p $(shell which python3); \
 	fi
 
 install_dependencies:	init_venv
