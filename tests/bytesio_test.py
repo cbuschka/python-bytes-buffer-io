@@ -13,6 +13,17 @@ class BytesIOTest(unittest.TestCase):
                 textout.write(TEXT)
             bytesio.getvalue().decode('utf-8')
 
+    def test_getvalue_before_close_sometimes_is_sufficient(self):
+        # this works if io wrapper does not rely on doing something on close()
+        # compare test_getvalue_before_close_does_not_work_with_gzip
+        bytesio = io.BytesIO()
+        with io.TextIOWrapper(bytesio, encoding='utf-8') as textout:
+            textout.write(TEXT)
+            textout.flush()
+            bytes = bytesio.getvalue()
+        with io.TextIOWrapper(io.BytesIO(bytes)) as textin:
+            self.assertEqual(TEXT, textin.read())
+
     def test_with_underlying_bytearray_does_not_work(self):
         bytesbuf = bytearray()
         with io.TextIOWrapper(io.BytesIO(bytesbuf), encoding='utf-8') as textout:
