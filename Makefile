@@ -44,7 +44,7 @@ upload: clean dist
 	source ${TOP_DIR}/venv/bin/activate && \
 	twine upload dist/*
 
-all_tests:	python36_tests python37_tests python38_tests
+all_tests:	python36_tests python37_tests python38_tests python39_tests
 
 python36_tests:
 	docker build -f ${TOP_DIR}/Dockerfile.build --build-arg=PYTHON_VERSION=3.6 --tag bytesbufio-build-36:latest ${TOP_DIR} && \
@@ -58,3 +58,6 @@ python38_tests:
 	docker build -f ${TOP_DIR}/Dockerfile.build --build-arg=PYTHON_VERSION=3.8 --tag bytesbufio-build-38:latest ${TOP_DIR} && \
 	docker run --rm bytesbufio-build-38:latest make tests
 
+python39_tests:
+	docker build -f ${TOP_DIR}/Dockerfile.build --build-arg=PYTHON_VERSION=3.9 --tag bytesbufio-build-39:latest ${TOP_DIR} && \
+	docker run --rm bytesbufio-build-39:latest make tests
