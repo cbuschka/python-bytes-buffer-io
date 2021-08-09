@@ -1,5 +1,5 @@
 TOP_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
-VENV_DIR := ${TOP_DIR}/venv/
+VENV_DIR := ${TOP_DIR}/.venv/
 SRC_DIR := ${TOP_DIR}/src/
 TESTS_DIR := ${TOP_DIR}/tests/
 SHELL := /bin/bash
@@ -32,7 +32,7 @@ install_dependencies:	init
 	pip install -r requirements-dev.txt
 
 dist:   tests
-	source ${TOP_DIR}/venv/bin/activate && \
+	source ${VENV_DIR}/bin/activate && \
 	python3 ${TOP_DIR}/setup.py sdist bdist_wheel
 
 clean:
@@ -41,7 +41,7 @@ clean:
 
 upload: clean dist
 	cd ${TOP_DIR} && \
-	source ${TOP_DIR}/venv/bin/activate && \
+	source ${VENV_DIR}/bin/activate && \
 	twine upload dist/*
 
 all_tests:	python36_tests python37_tests python38_tests python39_tests
