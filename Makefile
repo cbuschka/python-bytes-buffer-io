@@ -17,6 +17,9 @@ coverage_report:	tests
 
 init:
 	@cd ${TOP_DIR} && \
+	if [ ! $(shell virtualenv --version 1>/dev/null 2>&1) ]; then \
+		pip3 install virtualenv; \
+	fi; \
 	if [ ! -d "${VENV_DIR}" ]; then \
 		echo "Creating virtualenv..." && \
 		virtualenv ${VENV_DIR} -p $(shell which python3); \
